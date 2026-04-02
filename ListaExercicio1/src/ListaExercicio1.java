@@ -25,7 +25,7 @@ public class ListaExercicio1 {
 		//nivel4exercicio16();
 		
 		//desafioexercicio17();
-		desafioexercicio18();
+		//desafioexercicio18();
 		
 
 	}
