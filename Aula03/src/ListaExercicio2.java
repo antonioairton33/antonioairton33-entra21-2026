@@ -14,8 +14,19 @@ public class ListaExercicio2 {
 		//nivel2exercicio7();
 		//nivel2exercicio8();
 		//nivel2exercicio9();
-		nivel2exercicio10();
+		//nivel2exercicio10();
 		
+		//nivel3exercicio11();
+		//nivel3exercicio12();
+		//nivel3exercicio13();
+		//nivel3exercicio14();
+		//nivel3exercicio15();
+		
+		//nivel4exercicio16();
+		//nivel4exercicio17();
+		//nivel4exercicio18();
+		//nivel4exercicio19();
+		nivel4exercicio20();
 		
 		
 
@@ -232,10 +243,247 @@ public class ListaExercicio2 {
 		
 	}
 	
+	static void nivel3exercicio11 () {
+		Scanner entradaUser = new Scanner(System.in);
+		
+		int ano;
+		
+		System.out.println("Informe o ano: ");
+		ano = entradaUser.nextInt();
+		
+		if (ano % 4 == 0 && ano % 100 != 0 || ano % 400 == 0) {
+			System.out.println(ano + " é bissexto");
+		} else {
+			System.out.println(ano + " não é bissexto");
+		}
+		
+		
+	}
+	
+	static void nivel3exercicio12 () {
+		Scanner entradaUser = new Scanner(System.in);
+		
+		int numero1, numero2;
+		char operador;
+		
+		System.out.println("Informe o primeiro numero: ");
+		numero1 = entradaUser.nextInt();
+		System.out.println("Informe o segundo numero: ");
+		numero2 = entradaUser.nextInt();
+		System.out.println("Informe o operador (+,_,*,/): ");
+		operador = entradaUser.next().charAt(0);
+		
+		if (operador == '+') {
+			numero1 = numero1 + numero2;
+			System.out.println("Resultado: " + numero1);
+		} else if (operador == '-') {
+			numero1 = numero1 - numero2;
+			System.out.println("Resultado: " + numero1);
+		} else if (operador == '*') {
+			numero1 = numero1 * numero2;
+			System.out.println("Resultado: " + numero1);
+		} else if (operador == '/') {
+			numero1 = numero1 / numero2;
+			System.out.println("Resultado: " + numero1);
+		} else  {
+			System.out.println("Operador Inválido.");
+		}
+	}
+	
+	static void nivel3exercicio13() {
+		Scanner entradaUser = new Scanner(System.in);
+		
+		double salario;
+		
+		System.out.println("!!! Cálculo imposto de renda !!!");
+		System.out.println("Informe o salário: ");
+		salario = entradaUser.nextDouble();
+		
+		if (salario <= 2000) {
+			salario = 0;
+			System.out.println("Imposto: " + salario);
+		} else if (salario > 2000 && salario <= 3000) {
+			salario = salario * 0.10;
+			System.out.println("Imposto: " + salario);
+		} else if (salario > 3000 && salario <= 5000) {
+			salario = salario * 0.15;
+			System.out.println("Imposto: " + salario);
+		} else {
+			salario = salario * 0.20;
+			System.out.println("Imposto: " + salario);
+		}
+	}
+	
+	static void nivel3exercicio14() {
+		Scanner entradaUser = new Scanner(System.in);
+		
+		double compra;
+		
+		System.out.println("Informe o valor da compra: ");
+		compra = entradaUser.nextDouble();
+		
+		if (compra <= 100) {
+			System.out.println("Valor: " + compra);
+		} else if (compra > 100 && compra <= 500) {
+			compra = compra - (compra * 0.10);
+			System.out.println("Valor 10% desconto: " + compra);
+		} else {
+			compra = compra - (compra * 0.20);
+			System.out.println("Valor 20% desconto: " + compra);
+		}
+	}
+	
+	static void nivel3exercicio15(){
+		Scanner entradaUser = new Scanner(System.in);
+		
+		double idade;
+		
+		System.out.println("Informe a idade: ");
+		idade = entradaUser.nextDouble();
+		
+		if (idade >= 0 && idade <= 12) {
+			System.out.println("Criança.");
+		} else if (idade >= 13 && idade <= 17) {
+			System.out.println("Adolescente.");
+		} else if (idade >= 18 && idade <= 59) {
+			System.out.println("Adulto.");
+		} else if (idade >= 60) {
+			System.out.println("Idoso.");
+		} else {
+			System.out.println("Idade inválida.");
+		}
+	}
+	
+	static void nivel4exercicio16() {
+		Scanner entradaUser = new Scanner(System.in);
+		
+		double nota1, nota2, nota3, resultado;
+		
+		System.out.println("Informe a primeira nota: ");
+		nota1 = entradaUser.nextDouble();
+		System.out.println("Informa a segunda nota: ");
+		nota2 = entradaUser.nextDouble();
+		System.out.println("Informe a terceira nota: ");
+		nota3 = entradaUser.nextDouble();
+		
+		resultado = (nota1 + nota2 + nota3) / 3;
+		
+		System.out.println("Sua média: " + resultado);
+		
+		if (resultado >= 7) {
+			System.out.println("Aprovado.");
+		} else if (resultado > 5 && resultado <= 6) {
+			System.out.println("Recuperação.");
+		} else {
+			System.out.println("Reprovado.");
+		}	
+	}
+	
+	static void nivel4exercicio17() {
+		Scanner entradaUser = new Scanner(System.in);
+		
+		double salario, parcela, limite;
+		
+		System.out.println("Informe seu salário: ");
+		salario = entradaUser.nextDouble();
+		System.out.println("Informe o valor da parcela: ");
+		parcela = entradaUser.nextDouble();
+		
+		limite = salario * 0.45;
+		
+		System.out.println("");
+		System.out.println("!!! Seu limite de parcela é: R$" + limite + " !!!");
+		
+		if (parcela <= limite) {
+			System.out.println("");
+			System.out.println("Empréstimo foi aprovado!!!");
+		} else {
+			System.out.println("");
+			System.out.println("Empréstimo foi reprovado!!!");
+		}
+	}
 	
 	
+	static void nivel4exercicio18() {
+		Scanner entradaUser = new Scanner(System.in);
+		
+		int numeroSecreto = 34, palpite;
+		
+		System.out.println("!!! TENTE ACERTAR O NÚMERO SECRETO !!!");
+		System.out.println("");
+		
+		System.out.println("Informe seu palpite: ");
+		palpite = entradaUser.nextInt();
+		
+		if (palpite == numeroSecreto) {
+			System.out.println("Você acertou, parabéns.");
+		} else if (palpite > numeroSecreto) {
+			System.out.println("O número secreto é menor.");
+		} else {
+			System.out.println("O número secreto é maior.");
+		}
+	}
 	
+	static void nivel4exercicio19() {
+		Scanner entradaUser = new Scanner(System.in);
+		
+		double peso, altura, imc;
+		
+		System.out.println("Digite seu peso: ");
+		peso = entradaUser.nextDouble();
+		System.out.println("Digite sua altura: ");
+		altura = entradaUser.nextDouble();
+		
+		imc = peso / (altura * altura);
+		
+		System.out.println("Seu IMC: " + imc);
+		
+		if (imc < 18.5) {
+			System.out.println("Baixo peso");
+		} else if (imc >= 18.5 && imc <= 24.99) {
+			System.out.println("Normal");
+		} else if (imc >= 25 && imc <= 29.99) {
+			System.out.println("Sobrepeso");
+		} else {
+			System.out.println("Obesidade");
+		}
+	}
 	
-	
+	static void nivel4exercicio20() {
+		Scanner entradaUser = new Scanner(System.in);
+		
+		int senhaP = 2026, senha;
+		
+		System.out.println("Digite sua senha: ");
+		senha = entradaUser.nextInt();
+		
+		if (senha == senhaP) {
+			System.out.println("Acesso liberado!!!");
+		} else {
+			System.out.println("Senha incorreta. Resta 2 tentativas.");
+			
+			System.out.println("Digite sua senha: ");
+			senha = entradaUser.nextInt();
+			
+			if (senha == senhaP) {
+				System.out.println("Acesso liberado!!!");
+			} else {
+				System.out.println("Senha incorreta. Resta 1 tentativas.");
+				
+				System.out.println("Digite sua senha: ");
+				senha = entradaUser.nextInt();
+				
+				if (senha == senhaP) {
+					System.out.println("Acesso liberado!!!");
+				} else {
+					System.out.println("Acesso bloqueado!!!");
+				}
+				
+			}
+		}
+		
+	}
 
 }
+
+
