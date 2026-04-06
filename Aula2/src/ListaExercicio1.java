@@ -84,6 +84,8 @@ public class ListaExercicio1 {
 		String nome = entradaUser.nextLine();
 		System.out.println("Bem vindo " + nome + "!");
 		
+		entradaUser.close();
+		
 	}
 	
 	static void nivel2exercicio6() {
@@ -97,6 +99,7 @@ public class ListaExercicio1 {
 		idade = idade + 10;
 		System.out.println("Sua idade é:" + idade);
 		
+		entradaUser.close();
 	}
 	
 	
@@ -114,7 +117,7 @@ public class ListaExercicio1 {
 		resultado = numero1 + numero2;
 		
 		System.out.println(numero1  + "+" + numero2 + "=" + resultado);
-		
+		entradaUser.close();
 	}
 
 	static void nivel2exercicio8() {
@@ -127,7 +130,7 @@ public class ListaExercicio1 {
 		
 		numero = numero * 2;
 		System.out.println("Resultado: " + numero);
-		
+		entradaUser.close();
 	}
 	
 	
@@ -143,7 +146,7 @@ public class ListaExercicio1 {
 		produto = produto - desconto;
 		
 		System.out.println("O valor com desconto de 10%: " + produto);
-		
+		entradaUser.close();
 	}
 	
 	static void nivel3exercicio10(){
@@ -159,7 +162,7 @@ public class ListaExercicio1 {
 		resultado = altura * base;
 		
 		System.out.println("Resultado da Area: " + resultado);
-		
+		entradaUser.close();
 		
 	}
 	
@@ -179,7 +182,7 @@ public class ListaExercicio1 {
 		
 		System.out.println("Sua media é: " + media);
 		
-		
+		entradaUser.close();
 		
 	}
 	
@@ -195,7 +198,7 @@ public class ListaExercicio1 {
 		aumento = salario * aumento;
 		
 		System.out.printf("O valor com aumento de 15%%: %.2f\n", aumento);
-		
+		entradaUser.close();
 	}
 	
 	static void nivel4exercicio13() {
@@ -211,6 +214,7 @@ public class ListaExercicio1 {
 		idade = entradaUser.nextInt();
 		
 		System.out.println("Olá " + nome + ", " + "você tem " + idade + " anos!" );
+		entradaUser.close();
 	}
 	
 	static void nivel4exercicio14() {
@@ -234,6 +238,7 @@ public class ListaExercicio1 {
 		System.out.println("Subtração: " + subtracao);
 		System.out.println("Multiplicação: " + multiplicacao);
 		System.out.println("Divisão: " + divisao);
+		entradaUser.close();
 		
 	}
 	
@@ -249,8 +254,7 @@ public class ListaExercicio1 {
 		
 		System.out.println("Resultado em Fahrenheit: " + resultado);
 		
-		
-		
+		entradaUser.close();
 		
 	}
 	
@@ -269,6 +273,7 @@ public class ListaExercicio1 {
 		valorHora = valorHora * horasTrabalhadas;
 		
 		System.out.println("Salário total: R$" + valorHora);
+		entradaUser.close();
 		
 	}
 	
@@ -291,6 +296,7 @@ public class ListaExercicio1 {
 		numero1 = (numero1 + numero2 + numero3 ) / 3;
 		
 		System.out.println(nome + " a média dos números que você pediu é : " + numero1 );
+		entradaUser.close();
 	}
 	
 	static void desafioexercicio18(){
@@ -309,7 +315,10 @@ public class ListaExercicio1 {
 		
 		qnt = preco * qnt;
 	
+		System.out.println("Produto: " + nome);
 		System.out.println("O valor total da compra:" + qnt);
+		
+		entradaUser.close();
 	}
 	
 	

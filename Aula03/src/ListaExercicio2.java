@@ -46,6 +46,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println("Seu número é impar.");
 		}
+		entradaUser.close();
 	}
 	
 	static void exercicio2() {
@@ -65,6 +66,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println(y + " É maior");
 		}
+		entradaUser.close();
 	}
 	
 	static void exercicio3() {
@@ -82,6 +84,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println("Seu número é igual a 0");
 		}
+		entradaUser.close();
 	
 	}
 	
@@ -98,6 +101,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println("Reprovado!");
 		}
+		entradaUser.close();
 	
 	}
 	
@@ -114,6 +118,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println("Você não pode votar.");
 		}
+		entradaUser.close();
 		
 		
 		
@@ -144,7 +149,7 @@ public class ListaExercicio2 {
 			}
 			
 		}
-		
+		entradaUser.close();
 		
 	}
 	
@@ -167,6 +172,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println("Nota inválida!!!");
 		}
+		entradaUser.close();
 		
 	}
 	
@@ -187,6 +193,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println("Não corresponde a um triângulo.");
 		}
+		entradaUser.close();
 		
 		
 		
@@ -213,6 +220,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println("Não corresponde a nenhum triângulo apresentado.");
 		}
+		entradaUser.close();
 		
 		
 		
@@ -239,6 +247,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println("Acesso Negado.");
 		} 
+		entradaUser.close();
 		
 		
 	}
@@ -256,6 +265,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println(ano + " não é bissexto");
 		}
+		entradaUser.close();
 		
 		
 	}
@@ -288,6 +298,7 @@ public class ListaExercicio2 {
 		} else  {
 			System.out.println("Operador Inválido.");
 		}
+		entradaUser.close();
 	}
 	
 	static void nivel3exercicio13() {
@@ -312,6 +323,7 @@ public class ListaExercicio2 {
 			salario = salario * 0.20;
 			System.out.println("Imposto: " + salario);
 		}
+		entradaUser.close();
 	}
 	
 	static void nivel3exercicio14() {
@@ -331,6 +343,7 @@ public class ListaExercicio2 {
 			compra = compra - (compra * 0.20);
 			System.out.println("Valor 20% desconto: " + compra);
 		}
+		entradaUser.close();
 	}
 	
 	static void nivel3exercicio15(){
@@ -352,6 +365,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println("Idade inválida.");
 		}
+		entradaUser.close();
 	}
 	
 	static void nivel4exercicio16() {
@@ -377,6 +391,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println("Reprovado.");
 		}	
+		entradaUser.close();
 	}
 	
 	static void nivel4exercicio17() {
@@ -401,6 +416,7 @@ public class ListaExercicio2 {
 			System.out.println("");
 			System.out.println("Empréstimo foi reprovado!!!");
 		}
+		entradaUser.close();
 	}
 	
 	
@@ -422,6 +438,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println("O número secreto é maior.");
 		}
+		entradaUser.close();
 	}
 	
 	static void nivel4exercicio19() {
@@ -447,6 +464,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println("Obesidade");
 		}
+		entradaUser.close();
 	}
 	
 	static void nivel4exercicio20() {
@@ -481,6 +499,8 @@ public class ListaExercicio2 {
 				
 			}
 		}
+		
+		entradaUser.close();
 		
 	}
 

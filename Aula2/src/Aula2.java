@@ -40,14 +40,14 @@ public class Aula2 {
 		
 		*/
 		
-		int numero1, numero2, resultado;
+		int numero1; //numero2, resultado;
 		
 		JOptionPane.showMessageDialog(null, "Vamos fazer uma divisão?");
 		String input = JOptionPane.showInputDialog(null, "Informe o primeiro numero: ");
 		numero1 = Integer.parseInt(input);
 		
-		String input2 = JOptionPane.showInputDialog(null, "Informe o segundo número: ");
-		numero2 = Integer.parseInt(input2);
+		//String input2 = JOptionPane.showInputDialog(null, "Informe o segundo número: ");
+		//numero2 = Integer.parseInt(input2);
 		
 		JOptionPane.showMessageDialog(null, numero1 + " dividido por ");
 		
@@ -77,6 +77,8 @@ public class Aula2 {
         System.out.println("hello " + nome);
         System.out.println("Idade: " + idade);
         System.out.println("Altura: " + altura);
+        
+        entradaUser.close();
         
 	}
 }

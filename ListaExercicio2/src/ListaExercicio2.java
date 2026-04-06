@@ -35,6 +35,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println("Seu número é impar.");
 		}
+		entradaUser.close();
 	}
 	
 	static void exercicio2() {
@@ -54,6 +55,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println(y + " É maior");
 		}
+		entradaUser.close();
 	}
 	
 	static void exercicio3() {
@@ -71,7 +73,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println("Seu número é igual a 0");
 		}
-	
+		entradaUser.close();
 	}
 	
 	static void exercicio4(){
@@ -87,7 +89,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println("Reprovado!");
 		}
-	
+		entradaUser.close();
 	}
 	
 	static void exercicio5() {
@@ -103,7 +105,7 @@ public class ListaExercicio2 {
 		} else {
 			System.out.println("Você não pode votar.");
 		}
-		
+		entradaUser.close();
 		
 		
 	}
