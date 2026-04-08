@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class Vetores {
 	
 	public static void main(String[] args) {
@@ -46,11 +48,16 @@ public class Vetores {
 		//desafioDobro();
 		//desafioImpar();
 		
-		int retorno = somar(10,20);
-		System.out.println(retorno);
+		//int retorno = somar(10,20);
+		//System.out.println(retorno);
 		
-		retorno = somar(1000, 300);
-		System.out.println(retorno);
+		//retorno = somar(1000, 300);
+		//System.out.println(retorno);
+		
+		double precoPizza = 150.00;
+		int numeroPessoas = 10;
+		
+		System.out.println(dividir(precoPizza, numeroPessoas));
 	}
 	
 	static void desafioDobro() {
@@ -120,6 +127,14 @@ public class Vetores {
 	
 	static int somar(int n1, int n2) {
 		return n1 + n2;
+	}
+	
+	static double dividir(double numero, int divisor) {
+		if(divisor == 0) {
+			JOptionPane.showMessageDialog(null, "Não pode divir por zero");
+		}
+		
+		return numero / divisor;
 	}
 	
 
