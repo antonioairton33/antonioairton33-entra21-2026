@@ -144,16 +144,22 @@ public class ExercicioVetores {
 	
 	static void acimaMediaa(){
 		int [] numeros = new int [10];
+		double media = 0;
 		
 		Scanner pedido = new Scanner(System.in);
 		
 		for (int x = 0 ; x < numeros.length ; x++) {
 			System.out.printf("Informe o número %d: ", x+1);
 			numeros[x] = pedido.nextInt();
+			
+			media = numeros[x] + media;
 		}
 		
+		media = media / 10;
+		System.out.println("media: " + media);
+		System.out.println("");
 		for (int x = 0 ; x < numeros.length ; x++) {
-			if (numeros[x] > 6) {
+			if (numeros[x] > media) {
 				System.out.println(numeros[x]);
 			}
 		
