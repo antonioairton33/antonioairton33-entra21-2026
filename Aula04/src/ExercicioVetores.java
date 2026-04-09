@@ -10,7 +10,7 @@ public class ExercicioVetores {
 		//valoresInvertido();
 		//maiorNumero();
 		//ordemCrescente();
-		//acimaMediaa();
+		acimaMediaa();
 		
 	}
 
