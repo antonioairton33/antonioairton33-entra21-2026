@@ -8,9 +8,9 @@ public class ExercicioVetores {
 		//desafioDobro();
 		//desafioImpar();
 		//valoresInvertido();
-		//marioNumero();
+		maiorNumero();
 		//ordemCrescente();
-		acimaMediaa();
+		//acimaMediaa();
 		
 	}
 
@@ -90,25 +90,30 @@ public class ExercicioVetores {
 		}
 	}
 	
-	static void marioNumero() {
+	static void maiorNumero() {
 		int [] numeros = new int [5];
-		int numeroMaior = 0;
+		int posicao = 0;
 		
 		Scanner pedido = new Scanner(System.in);
+		System.out.printf("Informe o número 1: ");
+		numeros[0] = pedido.nextInt();
 		
-		for (int x = 0 ; x < numeros.length ; x++) {
+		int numeroMaior = numeros[0];
+		
+		
+		for (int x = 1 ; x < numeros.length ; x++) {
 			System.out.printf("Informe o número %d: ", x+1);
 			numeros[x] = pedido.nextInt();
-		}
-		
-		for (int y = 0 ; y < numeros.length ; y++) {
 			
-			if (numeroMaior < numeros[y]) {
-				numeroMaior = numeros[y];
-				
+			if (numeroMaior < numeros[x]) {	
+				numeroMaior = numeros[x];
+				posicao = x;
 			}
 		}
+		
 		System.out.printf("O número maior é: %d", numeroMaior);
+		System.out.println("");
+		System.out.println("Posição: " + posicao);
 		pedido.close();
 	}
 	
