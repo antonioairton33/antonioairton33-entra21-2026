@@ -8,7 +8,7 @@ public class ExercicioVetores {
 		//desafioDobro();
 		//desafioImpar();
 		//valoresInvertido();
-		maiorNumero();
+		//maiorNumero();
 		//ordemCrescente();
 		//acimaMediaa();
 		
