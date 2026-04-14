@@ -12,9 +12,11 @@ function variaveis(){
 
 }
 
-function ola(){
-    console.log("ola")
+function ola(nome){
+    alert('Olá ' + nome)
 }
 
+/*
 ola()
 variaveis()
+*/
