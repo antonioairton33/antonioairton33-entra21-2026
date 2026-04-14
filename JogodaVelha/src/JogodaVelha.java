@@ -11,7 +11,7 @@ public class JogodaVelha {
 		//char xis = 'X';
 		char jogador = 'X';
 		
-		int linha, coluna, jogadas = 0;
+		int linha, coluna; //jogadas = 0;
 	
 			
 		
@@ -46,7 +46,7 @@ public class JogodaVelha {
 			System.out.println("Informe a coluna para jogar: ");
 			coluna = pedido.nextInt();
 			
-			jogadas(jogadas, tabuleiro ,linha ,coluna, jogador);
+			jogadas(/*jogadas*/ tabuleiro ,linha ,coluna, jogador);
 			
 			if(jogador == 'X') {
 				jogador = 'O';
@@ -119,7 +119,7 @@ public class JogodaVelha {
 			      |      |        
 			*/
 		
-				jogadas++;
+				//jogadas++;
 				ganhou = verificaVitoria(tabuleiro);
 			}
 		
@@ -129,6 +129,8 @@ public class JogodaVelha {
 			//pedido.close();
 			
 			//}
+			
+			pedido.close();
 	}	
 	
 	static void tabuleiroMostra (char[] tabuleiro) {
@@ -142,50 +144,50 @@ public class JogodaVelha {
 		System.out.println("                      |     |\n");
 	}
 	
-	static void jogadas(int jogadas, char[] tabuleiro, int linha, int coluna, char jogador) {
-		if(jogadas < 9) {
+	static void jogadas(/*int jogadas,*/ char[] tabuleiro, int linha, int coluna, char jogador) {
+		//if(jogadas < 9) {
 			
 			if(linha == 1) {
 				if (coluna == 1) {
 					tabuleiro[0] = jogador;
-					tabuleiroMostra(tabuleiro);
+					//tabuleiroMostra(tabuleiro);
 				} else if (coluna == 2) {
 					tabuleiro[1] = jogador; 
-					tabuleiroMostra(tabuleiro);
+					//tabuleiroMostra(tabuleiro);
 				} else if (coluna == 3) {
 					tabuleiro[2] = jogador; 
-					tabuleiroMostra(tabuleiro);
+					//tabuleiroMostra(tabuleiro);
 				}
 				
 			} else if (linha == 2) {
 				if (coluna == 1) {
 					tabuleiro[3] = jogador;
-					tabuleiroMostra(tabuleiro);
+					//tabuleiroMostra(tabuleiro);
 				} else if (coluna == 2) {
 					tabuleiro[4] = jogador; 
-					tabuleiroMostra(tabuleiro);
+					//tabuleiroMostra(tabuleiro);
 				} else if (coluna == 3) {
 					tabuleiro[5] = jogador; 
-					tabuleiroMostra(tabuleiro);
+					//tabuleiroMostra(tabuleiro);
 				}
 				
 			} else if (linha == 3) {
 				if (coluna == 1) {
 					tabuleiro[6] = jogador; 
-					tabuleiroMostra(tabuleiro);
+					//tabuleiroMostra(tabuleiro);
 				} else if (coluna == 2) {
 					tabuleiro[7] = jogador; 
-					tabuleiroMostra(tabuleiro);
+					//tabuleiroMostra(tabuleiro);
 				} else if (coluna == 3) {
 					tabuleiro[8] = jogador; 
-					tabuleiroMostra(tabuleiro);
+					//tabuleiroMostra(tabuleiro);
 				}
 			}
-			
+			tabuleiroMostra(tabuleiro);
 			//jogadas++;
 		}
 		
-	}
+	//}
 	
 	
 	
