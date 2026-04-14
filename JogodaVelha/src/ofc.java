@@ -7,7 +7,7 @@ public class ofc {
 		
 		char[] tabuleiro = new char[9];
 		
-		char jogador = 'X';
+		char jogador = 'O';
 		
 		int linha, coluna;
 	
@@ -23,7 +23,7 @@ public class ofc {
 		boolean empatou = false;
 		
 		while(!ganhou  && !empatou) {
-			
+			jogador = trocaJogador(jogador);
 			
 			System.out.println("jogador: " + jogador);
 			
@@ -35,16 +35,16 @@ public class ofc {
 			
 			jogadas(tabuleiro ,linha ,coluna, jogador);
 			
-			jogador = trocaJogador(jogador);
 		/*
 	  		      |      |     
-			      |      |	   
+			  1   |  2   |	3  
 			------|------|-----
-			      |	     |     
+			  4   |	 5   |  6   
 			------|------|-----
-				  |      |             
-			      |      |        
-			*/
+			  7   |  8   |  9          
+			      |      |  
+			            
+		*/
 		
 				
 			ganhou = verificaVitoria(tabuleiro);
@@ -53,7 +53,6 @@ public class ofc {
 				
 			}
 			if(ganhou) {
-				jogador = trocaJogador(jogador);
 				System.out.println("PARABÉNS JOGADOR: " + jogador + " GANHOU!!!!!!");
 			} else if(empatou) {
 				System.out.println("EMPATOU!!!");
