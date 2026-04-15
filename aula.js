@@ -16,7 +16,6 @@ function ola(nome){
     alert('Olá ' + nome)
 }
 
-/*
-ola()
-variaveis()
-*/
+
+//ola()
+//variaveis()
