@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Contato</title>
+</head>
+<body>
+    <p>
+        Curriculo:
+        <a href="./4_curriculo.html">clique_aqui</a>
+    </p>
+    <h3>📝Formulário Para Contato📝</h3>
+
+    <p>Preencha todos os campos abaixo e após terminar clique em "ENVIAR".</p>
+    <form>
+        <label for="nome_completo">Nome Completo:</label> <br>
+        <input type="text" id="nome_completo" name='nome' required placeholder="Digite Seu Nome Completo">
+        <br><br>
+
+        <label for="email">Email:</label> <br>
+        <input type="email" id="email" name="email" required placeholder="Digite Seu Email">
+        <br><br>
+        <label for="assunto">Assunto:</label> <br>
+        <input type="text" id="assunto" name="assunto" placeholder="Digite o Assunto">
+        <br><br>
+
+        <label for="estados_escolha">Estado:</label> <br>
+        <select name="estados" id="estados_escolha">
+            <option value="">Escolha...</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="PE">Pernambuco</option>
+            <option value="SP">São Paulo</option>
+            <option value="PR">Paraná</option>
+            <option value="RS">Rio Grande do Sul</option>
+        </select> 
+        <br><br>
+
+        <label for="mensagem">Mensagem:</label><br>
+        <textarea name="mensagem" id="mensagem" rows="10" cols="30" placeholder="Relate O Ocorrido...."></textarea>
+        <br><br>
+
+        <button type="submit">ENVIAR</button>
+    </form>
+
+</body>
+</html>
