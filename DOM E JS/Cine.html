@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema</title>
+
+    <style>
+
+        body{
+            background-color: #0f172a;
+            color: white;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        #cinema{
+            margin-top: 20px;
+        }
+
+        .linha{
+            margin: 10px;
+        }
+
+        .assento{
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: none;
+            margin: 5px;
+            background-color: #94a3b8;
+            cursor: pointer;
+        }
+
+        .selecionado{
+            background-color: yellow;
+            color: black;
+        }
+
+        .ocupado{
+            background-color: red;
+            cursor: not-allowed;
+        }
+
+        #tela{
+            width: 400px;
+            background-color: white;
+            color: black;
+            margin: 30px auto;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Escolha seu Assento</h1>
+
+    <div id="cinema">
+        <!-- assentos -->
+    </div>
+
+    <div id="tela">
+        TELA
+    </div>
+
+    <h2 id="resultado">
+        Nenhum assento selecionado
+    </h2>
+
+    <script>
+
+        const cinema = document.getElementById('cinema')
+
+        function criarLinha(nomeLinha){
+
+            const linha = document.createElement('div')
+            linha.setAttribute('class','linha')
+
+            const texto = document.createElement('span')
+            texto.innerHTML = nomeLinha + " "
+
+            linha.appendChild(texto)
+
+            for(let i = 1; i <= 8; i++){
+
+                const assento = document.createElement('button')
+
+                assento.innerHTML = i
+                assento.setAttribute('class','assento')
+
+                assento.setAttribute(
+                    'onclick',
+                    'selecionarAssento(this)'
+                )
+
+                linha.appendChild(assento)
+            }
+
+            cinema.appendChild(linha)
+        }
+
+        criarLinha('A')
+        criarLinha('B')
+        criarLinha('C')
+        criarLinha('D')
+        criarLinha('E')
+
+
+
+        function selecionarAssento(botao){
+
+            if(botao.classList.contains('ocupado')){
+                return
+            }
+
+            if(botao.classList.contains('selecionado')){
+                botao.classList.remove('selecionado')
+            }
+            else{
+                botao.classList.add('selecionado')
+            }
+
+            mostrarSelecionados()
+        }
+
+
+
+        function mostrarSelecionados(){
+
+            const selecionados = document.querySelectorAll('.selecionado')
+
+            let texto = 'Assentos: '
+
+            selecionados.forEach(function(item){
+                texto += item.innerHTML + ' '
+            })
+
+            if(selecionados.length == 0){
+                texto = 'Nenhum assento selecionado'
+            }
+
+            document.getElementById('resultado').innerHTML = texto
+        }
+
+
+
+        // deixando alguns assentos ocupados
+
+        const todosAssentos = document.querySelectorAll('.assento')
+
+        todosAssentos[2].classList.add('ocupado')
+        todosAssentos[7].classList.add('ocupado')
+        todosAssentos[15].classList.add('ocupado')
+
+    </script>
+
+</body>
+</html>
