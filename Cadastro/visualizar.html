@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizar Clientes</title>
+
+    <style>
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 30px;
+
+            background: linear-gradient(to right, #dfefff, #c7f5ff);
+        }
+
+        h1{
+            text-align: center;
+
+            color: #222;
+
+            margin-bottom: 40px;
+
+            font-size: 40px;
+
+            text-shadow: 0px 0px 10px rgba(0,255,255,0.5);
+        }
+
+        #resultado{
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .cliente{
+            background-color: white;
+
+            border-left: 8px solid cyan;
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 0 15px rgba(0,255,255,0.5);
+
+            transition: 0.3s;
+        }
+
+        .cliente:hover{
+            transform: scale(1.02);
+
+            box-shadow: 0 0 25px cyan;
+        }
+
+        .cliente p{
+            margin: 10px 0;
+
+            font-size: 18px;
+
+            color: #333;
+        }
+
+        .cliente b{
+            color: #009acd;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Clientes Cadastrados</h1>
+
+    <div id="resultado"></div>
+
+    <script>
+
+        let clientes = JSON.parse(localStorage.getItem("clientes")) || [];
+
+        let resultado = document.getElementById("resultado");
+
+        for(let cliente of clientes){
+
+            resultado.innerHTML += `
+            
+                <div class="cliente">
+
+                    <p><b>Nome:</b> ${cliente.nome}</p>
+
+                    <p><b>Email:</b> ${cliente.email}</p>
+
+                    <p><b>Telefone:</b> ${cliente.telefone}</p>
+
+                </div>
+
+            `;
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+
+    <style>
+
+        body{
+            margin: 0;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: #dfefff;
+
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #principal{
+            background-color: white;
+
+            width: 400px;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+
+            display: flex;
+            flex-direction: column;
+
+            gap: 15px;
+        }
+
+        h1{
+            text-align: center;
+            margin: 0 0 15px 0;
+
+            color: #333;
+        }
+
+        button{
+            height: 45px;
+
+            border: none;
+            border-radius: 8px;
+
+            background-color: #00bfff;
+
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover{
+            background-color: #009acd;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="principal">
+
+        <h1>Gerenciamento de Clientes</h1>
+
+        <button onclick="window.location.href='cadastro.html'">Cadastrar</button>
+        <button onclick="window.location.href='visualizar.html'">Visualizar</button>
+
+        <button>Sair</button>
+
+    </div>
+
+</body>
+</html>
