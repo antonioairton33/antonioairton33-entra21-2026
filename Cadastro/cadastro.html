@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Clientes</title>
 
     <style>
-
-        body{
+        body {
             margin: 0;
             height: 100vh;
 
@@ -20,7 +20,7 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        #principal{
+        #principal {
             background-color: white;
 
             width: 350px;
@@ -29,21 +29,20 @@
 
             border-radius: 15px;
 
-            box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
         }
 
-        h1{
+        h1 {
             text-align: center;
             margin-bottom: 25px;
-
             color: #333;
         }
 
-        label{
+        label {
             font-weight: bold;
         }
 
-        input{
+        input {
             width: 100%;
             height: 40px;
 
@@ -60,7 +59,7 @@
             font-size: 15px;
         }
 
-        button{
+        button {
             width: 100%;
             height: 45px;
 
@@ -78,10 +77,69 @@
             transition: 0.3s;
         }
 
-        button:hover{
+        button:hover {
             background-color: #009acd;
         }
 
+        /* POPUP TOAST */
+        #toast {
+            position: fixed;
+
+            bottom: 20px;
+            right: 20px;
+
+            padding: 15px 20px;
+
+            border-radius: 10px;
+
+            color: white;
+
+            font-weight: bold;
+
+            opacity: 0;
+
+            transform: translateY(20px);
+
+            transition: 0.4s;
+
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .success {
+            background: #00c853;
+        }
+
+        .error {
+            background: #ff3d3d;
+        }
+
+        #divdois {
+            position: fixed;
+
+            bottom: 20px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+
+        }
+
+        #voltar {
+            width: 100px;
+            height: 40px;
+            background-color: #00bfff;
+            color: white;
+        }
+
+        #voltar:hover {
+            background-color: #009acd;
+        }
     </style>
 </head>
 
@@ -106,18 +164,60 @@
 
     </div>
 
+    <!-- TOAST -->
+    <div id="toast"></div>
+
+    <div id="divdois"><button id="voltar" onclick="window.location.href='menu.html'">Voltar</button></div>
+
     <script>
 
-        function cadastrar(){
+        function mostrarToast(mensagem, tipo) {
 
-            let nome = document.getElementById("nome").value;
-            let email = document.getElementById("email").value;
-            let telefone = document.getElementById("telefone").value;
+            let toast = document.getElementById("toast");
+
+            toast.innerText = mensagem;
+
+            toas.t.className = "";
+
+            toast.classList.add("show");
+
+            toast.classList.add(tipo);
+
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 3000);
+        }
+
+        function cadastrar() {
+
+            let nome = document.getElementById("nome").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let telefone = document.getElementById("telefone").value.trim();
+
+            // VALIDACAO NOME (nome e sobrenome)
+            if (nome.split(" ").length < 2) {
+                mostrarToast("Digite nome e sobrenome", "error");
+                return;
+            }
+
+            // VALIDACAO EMAIL
+            if (!email.includes("@") || !email.includes(".")) {
+                mostrarToast("Email inválido", "error");
+                return;
+            }
+
+            // VALIDACAO TELEFONE (somente numeros e 11 digitos)
+            let apenasNumeros = telefone.replace(/\D/g, "");
+
+            if (apenasNumeros.length !== 11) {
+                mostrarToast("Telefone deve ter 11 números", "error");
+                return;
+            }
 
             let cliente = {
                 nome: nome,
                 email: email,
-                telefone: telefone
+                telefone: apenasNumeros
             };
 
             let clientes = JSON.parse(localStorage.getItem("clientes")) || [];
@@ -126,11 +226,15 @@
 
             localStorage.setItem("clientes", JSON.stringify(clientes));
 
-            alert("Cliente cadastrado!");
+            mostrarToast("Cliente cadastrado com sucesso!", "success");
 
+            document.getElementById("nome").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("telefone").value = "";
         }
 
     </script>
 
 </body>
+
 </html>

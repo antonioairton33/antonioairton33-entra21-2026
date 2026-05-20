@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+
     <meta charset="UTF-8">
+
     <title>Visualizar Clientes</title>
 
     <style>
-
-        body{
+        body {
             font-family: Arial, Helvetica, sans-serif;
+
             margin: 0;
+
             padding: 30px;
 
             background: linear-gradient(to right, #dfefff, #c7f5ff);
         }
 
-        h1{
+        h1 {
             text-align: center;
 
             color: #222;
@@ -23,48 +27,144 @@
 
             font-size: 40px;
 
-            text-shadow: 0px 0px 10px rgba(0,255,255,0.5);
+            text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5);
         }
 
-        #resultado{
-            max-width: 800px;
+        /* GRID DOS CARDS */
+        #resultado {
+            display: grid;
+
+            grid-template-columns: repeat(auto-fill, 280px);
+
+            justify-content: center;
+
+            gap: 20px;
+
+            max-width: 1200px;
+
             margin: auto;
         }
 
-        .cliente{
+        /* CARD */
+        .cliente {
             background-color: white;
 
-            border-left: 8px solid cyan;
+            border-top: 8px solid cyan;
 
             padding: 20px;
 
-            margin-bottom: 20px;
-
             border-radius: 15px;
 
-            box-shadow: 0 0 15px rgba(0,255,255,0.5);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
 
             transition: 0.3s;
+
+            min-height: 220px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
         }
 
-        .cliente:hover{
-            transform: scale(1.02);
+        .cliente:hover {
+            transform: translateY(-5px);
 
             box-shadow: 0 0 25px cyan;
         }
 
-        .cliente p{
+        .cliente p {
             margin: 10px 0;
 
             font-size: 18px;
 
             color: #333;
+
+            word-break: break-word;
         }
 
-        .cliente b{
+        .cliente b {
             color: #009acd;
         }
 
+        /* BOTÕES */
+        .botoes {
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+        button {
+            flex: 1;
+
+            border: none;
+
+            padding: 10px;
+
+            border-radius: 10px;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .editar {
+            background-color: #00bfff;
+
+            color: white;
+        }
+
+        .editar:hover {
+            background-color: #009acd;
+        }
+
+        .excluir {
+            background-color: #ff4d4d;
+
+            color: white;
+        }
+
+        .excluir:hover {
+            background-color: #cc0000;
+        }
+
+        .sem-clientes {
+            text-align: center;
+
+            font-size: 25px;
+
+            color: #444;
+
+            grid-column: 1 / -1;
+        }
+
+        #divdois {
+            position: fixed;
+
+            bottom: 20px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+
+        }
+
+        #voltar {
+            width: 100px;
+            height: 40px;
+            background-color: #00bfff;
+            color: white;
+        }
+
+        #voltar:hover {
+            background-color: #009acd;
+        }
     </style>
 
 </head>
@@ -75,30 +175,111 @@
 
     <div id="resultado"></div>
 
+    <div id="divdois"><button id="voltar" onclick="window.location.href='menu.html'">Voltar</button></div>
+
     <script>
 
         let clientes = JSON.parse(localStorage.getItem("clientes")) || [];
 
         let resultado = document.getElementById("resultado");
 
-        for(let cliente of clientes){
+        function mostrarClientes() {
 
-            resultado.innerHTML += `
-            
-                <div class="cliente">
+            resultado.innerHTML = "";
 
-                    <p><b>Nome:</b> ${cliente.nome}</p>
+            if (clientes.length === 0) {
 
-                    <p><b>Email:</b> ${cliente.email}</p>
+                resultado.innerHTML = `
+                
+                    <p class="sem-clientes">
+                        Nenhum cliente cadastrado 😢
+                    </p>
 
-                    <p><b>Telefone:</b> ${cliente.telefone}</p>
+                `;
 
-                </div>
+            } else {
 
-            `;
+                clientes.forEach((cliente, index) => {
+
+                    resultado.innerHTML += `
+                    
+                        <div class="cliente">
+
+                            <div>
+
+                                <p><b>Nome:</b> ${cliente.nome}</p>
+
+                                <p><b>Email:</b> ${cliente.email}</p>
+
+                                <p><b>Telefone:</b> ${cliente.telefone}</p>
+
+                            </div>
+
+                            <div class="botoes">
+
+                                <button class="editar" onclick="editarCliente(${index})">
+                                    Editar
+                                </button>
+
+                                <button class="excluir" onclick="excluirCliente(${index})">
+                                    Excluir
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    `;
+                });
+
+            }
+
         }
+
+        function excluirCliente(index) {
+
+            let confirmar = confirm("Deseja realmente excluir este cliente?");
+
+            if (confirmar) {
+
+                clientes.splice(index, 1);
+
+                localStorage.setItem("clientes", JSON.stringify(clientes));
+
+                mostrarClientes();
+
+            }
+
+        }
+
+        function editarCliente(index) {
+
+            let novoNome = prompt("Digite o novo nome:", clientes[index].nome);
+
+            let novoEmail = prompt("Digite o novo email:", clientes[index].email);
+
+            let novoTelefone = prompt("Digite o novo telefone:", clientes[index].telefone);
+
+            if (novoNome && novoEmail && novoTelefone) {
+
+                clientes[index].nome = novoNome;
+
+                clientes[index].email = novoEmail;
+
+                clientes[index].telefone = novoTelefone;
+
+                localStorage.setItem("clientes", JSON.stringify(clientes));
+
+                mostrarClientes();
+
+            }
+
+        }
+
+        mostrarClientes();
 
     </script>
 
 </body>
+
 </html>
