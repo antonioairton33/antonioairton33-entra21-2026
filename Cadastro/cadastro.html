@@ -126,8 +126,6 @@
             left: 50%;
 
             transform: translateX(-50%);
-
-
         }
 
         #voltar {
@@ -158,6 +156,9 @@
         <label>Telefone</label>
         <input type="text" id="telefone">
 
+        <label>CEP</label>
+        <input type="text" id="cep">
+
         <button onclick="cadastrar()">
             Cadastrar
         </button>
@@ -167,7 +168,11 @@
     <!-- TOAST -->
     <div id="toast"></div>
 
-    <div id="divdois"><button id="voltar" onclick="window.location.href='menu.html'">Voltar</button></div>
+    <div id="divdois">
+        <button id="voltar" onclick="window.location.href='menu.html'">
+            Voltar
+        </button>
+    </div>
 
     <script>
 
@@ -177,7 +182,7 @@
 
             toast.innerText = mensagem;
 
-            toas.t.className = "";
+            toast.className = "";
 
             toast.classList.add("show");
 
@@ -193,6 +198,7 @@
             let nome = document.getElementById("nome").value.trim();
             let email = document.getElementById("email").value.trim();
             let telefone = document.getElementById("telefone").value.trim();
+            let cep = document.getElementById("cep").value.trim();
 
             // VALIDACAO NOME (nome e sobrenome)
             if (nome.split(" ").length < 2) {
@@ -214,10 +220,19 @@
                 return;
             }
 
+            let apenasNumerosCep = cep.replace(/\D/g, "");
+
+            // VALIDACAO CEP (somente numeros e 8 digitos)
+            if (apenasNumerosCep.length !== 8) {
+                mostrarToast("CEP deve ter 8 números", "error");
+                return;
+            }
+
             let cliente = {
                 nome: nome,
                 email: email,
-                telefone: apenasNumeros
+                telefone: apenasNumeros,
+                cep: apenasNumerosCep
             };
 
             let clientes = JSON.parse(localStorage.getItem("clientes")) || [];
@@ -231,6 +246,7 @@
             document.getElementById("nome").value = "";
             document.getElementById("email").value = "";
             document.getElementById("telefone").value = "";
+            document.getElementById("cep").value = "";
         }
 
     </script>

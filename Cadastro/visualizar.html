@@ -10,77 +10,50 @@
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-
             margin: 0;
-
             padding: 30px;
-
             background: linear-gradient(to right, #dfefff, #c7f5ff);
         }
 
         h1 {
             text-align: center;
-
             color: #222;
-
             margin-bottom: 40px;
-
             font-size: 40px;
-
             text-shadow: 0px 0px 10px rgba(0, 255, 255, 0.5);
         }
 
-        /* GRID DOS CARDS */
         #resultado {
             display: grid;
-
             grid-template-columns: repeat(auto-fill, 280px);
-
             justify-content: center;
-
             gap: 20px;
-
             max-width: 1200px;
-
             margin: auto;
         }
 
-        /* CARD */
         .cliente {
             background-color: white;
-
             border-top: 8px solid cyan;
-
             padding: 20px;
-
             border-radius: 15px;
-
             box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-
             transition: 0.3s;
-
             min-height: 220px;
-
             display: flex;
-
             flex-direction: column;
-
             justify-content: space-between;
         }
 
         .cliente:hover {
             transform: translateY(-5px);
-
             box-shadow: 0 0 25px cyan;
         }
 
         .cliente p {
             margin: 10px 0;
-
             font-size: 18px;
-
             color: #333;
-
             word-break: break-word;
         }
 
@@ -88,34 +61,24 @@
             color: #009acd;
         }
 
-        /* BOTÕES */
         .botoes {
             display: flex;
-
             gap: 10px;
-
             margin-top: 20px;
         }
 
         button {
             flex: 1;
-
             border: none;
-
             padding: 10px;
-
             border-radius: 10px;
-
             font-size: 15px;
-
             cursor: pointer;
-
             transition: 0.3s;
         }
 
         .editar {
             background-color: #00bfff;
-
             color: white;
         }
 
@@ -125,7 +88,6 @@
 
         .excluir {
             background-color: #ff4d4d;
-
             color: white;
         }
 
@@ -133,26 +95,41 @@
             background-color: #cc0000;
         }
 
+        .cep {
+            background-color: #00bfff;
+            color: white;
+            margin-top: 5px;
+        }
+
+        .cep:hover {
+            background-color: #009acd;
+        }
+
+        .endereco {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f0faff;
+            border-radius: 10px;
+            border: 1px solid #00bfff;
+        }
+
+        .endereco p {
+            font-size: 15px;
+            margin: 6px 0;
+        }
+
         .sem-clientes {
             text-align: center;
-
             font-size: 25px;
-
             color: #444;
-
             grid-column: 1 / -1;
         }
 
         #divdois {
             position: fixed;
-
             bottom: 20px;
-
             left: 50%;
-
             transform: translateX(-50%);
-
-
         }
 
         #voltar {
@@ -213,6 +190,14 @@
 
                                 <p><b>Telefone:</b> ${cliente.telefone}</p>
 
+                                <p><b>CEP:</b> ${cliente.cep}</p>
+
+                                <button class="cep" onclick="buscarCep('${cliente.cep}', ${index})">
+                                    Ver endereço
+                                </button>
+
+                                <div id="endereco-${index}"></div>
+
                             </div>
 
                             <div class="botoes">
@@ -234,6 +219,53 @@
 
             }
 
+        }
+
+        function buscarCep(cep, index) {
+
+            let divEndereco = document.getElementById(`endereco-${index}`);
+
+            if (divEndereco.innerHTML !== "") {
+                divEndereco.innerHTML = "";
+                return;
+            }
+
+            cep = cep.replace(/\D/g, "");
+
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                .then(dados => dados.json())
+                .then(resposta => {
+
+                    if (resposta.erro) {
+
+                        divEndereco.innerHTML = `
+                    <p style="color:red;">
+                        CEP não encontrado
+                    </p>
+                `;
+
+                        return;
+                    }
+
+                    divEndereco.innerHTML = `
+            
+                <div class="endereco">
+
+                    <p><b>Rua:</b> ${resposta.logradouro}</p>
+
+                    <p><b>Bairro:</b> ${resposta.bairro}</p>
+
+                    <p><b>Cidade:</b> ${resposta.localidade}</p>
+
+                    <p><b>Estado:</b> ${resposta.estado}</p>
+
+                    <p><b>UF:</b> ${resposta.uf}</p>
+
+                </div>
+
+            `;
+
+                });
         }
 
         function excluirCliente(index) {
