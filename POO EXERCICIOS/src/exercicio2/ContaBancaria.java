@@ -11,7 +11,9 @@ public class ContaBancaria {
     }
 
     public void sacar(double valor) {
-        this.saldo -= valor;
+        if(this.saldo >= valor){
+            this.saldo -= valor;
+        }
     }
 
     public double consultarSaldo() {
